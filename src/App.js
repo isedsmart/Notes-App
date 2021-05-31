@@ -1,7 +1,7 @@
 import './App.css';
 import React from 'react';
 import { useState, useEffect } from 'react';
-// import * as mt from 'material-ui/core';
+import * as mt from '@material-ui/core';
 // json-server --watch db.json --port 8000
 
 import CreateNote from './components/CreateNote';
@@ -11,6 +11,7 @@ import NotesList from './components/NotesList';
 import api from './axiosConfig';
 
 import styled from "styled-components";
+// import { withStyles } from '@material-ui/core/styles';
 
 const Title = styled.h1`
   text-align: center;
@@ -34,9 +35,14 @@ const TopDivider = styled.div`
   background: #F5276F;
 `
 
+const SearchBar = styled(mt.TextField)`
+  padding: 50px;
+`
+
 function App() {
   const [clicked, setclicked] = useState(false);
   const [notes, setNotes] = useState([]);
+  const [search, setSearch] = useState('');
 
   // Use try, catch blocks for async functions (helpful last notes at 8:30)
   const fetchNotes = async() => {
@@ -62,6 +68,11 @@ function App() {
     fetchNotes();
   }, [])
 
+  const SearchFilter = (e) => {
+    console.log('Searchfilter works');
+    setSearch(e.target.value);
+  }
+
   const handleClick = () => { // Toggles the clicked functionality
     setclicked(setclicked => !setclicked);
   }
@@ -80,6 +91,7 @@ function App() {
   return (
     <main>
       <Title> Welcome to My Notes </Title>
+      <SearchBar placeholder="Search for Notes" variant="outlined" margin="dense" color="secondary" onChange={SearchFilter}/>
       <TopDivider/>
       { clicked && <CreateNote fetchNotes={fetchNotes} handleClick={handleClick}/> }
       <AddNoteFooter handleClick={handleClick} />
@@ -87,5 +99,20 @@ function App() {
     </main>
   );
 }
+
+/*
+
+const styles = (theme) => ({
+  Search: {
+    textAlign: 'center',
+  }
+})
+
+      <mt.AppBar>
+        <mt.Typography variant='h3'> Welcome to my Notes </mt.Typography>
+        <mt.InputBase placeholder="Search" /> 
+      </mt.AppBar>
+
+*/
 
 export default App;
