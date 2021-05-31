@@ -14,6 +14,8 @@ Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 The page will reload if you make edits.\
 You will also see any lint errors in the console.
 
+This app also uses a JSON server so one needs to be setup. I use axios to connect to the baseURL of the JSON server which is by default http://localhost:8000/notes.
+
 ### `npm test`
 
 Launches the test runner in the interactive watch mode.\
