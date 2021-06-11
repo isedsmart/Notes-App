@@ -1,4 +1,5 @@
 import React from 'react';
+import { useState } from 'react';
 import styled from "styled-components";
 import { AiTwotoneDelete, AiOutlineEdit } from 'react-icons/ai';
 import * as mt from '@material-ui/core';
@@ -29,6 +30,21 @@ export const CardBody = styled.div`
 	height: 400px;
 `
 
+const TextField = styled.textarea`
+  width: 350px;
+  height: 400px;
+  maxHeight: 300px;
+  resize: none; 
+  padding: 10px 10px;
+  border: 2px solid #ccc;
+  border-radius: 4px;
+  font-size: 16px;
+  background-color: #f8f8f8;
+  margin-bottom: 10px;
+  box-sizing: border-box;
+  font-family: "Arial", Sans-serif;
+`
+
 export const Button = styled.button`
 	position: relative;
 	left: 5%;
@@ -38,53 +54,65 @@ export const Button = styled.button`
 // Float just flips (swaps) the elements
 
 const NotesDetails = ({id, date, time, body, fetchNotes}) => {
+	const [isModified, setIsModified] = useState(false);
+	const [dateModified, setDateModified] = useState(new Date().toLocaleDateString("en-US"));
+  const [timeModified, setTimeModified] = useState(new Date().toLocaleTimeString("en-US", {timeStyle: 'short'}));
+
 
 	const deleteNote = async(id) => {
     await api.delete(`/${id}`);
     fetchNotes();
   }
 
+
+  // This updates the body of the note
   const updateNote = async(id) => {
-  	// console.log(id)
-  	// console.log(body)
-    await api.patch(`/${id}`, {body: body});
+    await api.patch(`/${id}`, {
+    isModified: true,
+    body: body,
+    dateModified: dateModified,
+    timeModified: timeModified
+    }); 
     fetchNotes();
+    // Save button
   }
 
+  const onUpdateClick = (id, e) => {
+  	// console.log('Hello world' + id)
+  	setIsModified(true);
+  }
+   
 /*
 
-<mt.Grid container>
-	<mt.Grid item xs={12} sm={6} md={3}> 
-		<mt.Paper>1 </mt.Paper>
-	</mt.Grid>
-	<mt.Grid item xs={12} sm={6} md={3}> 
-		<mt.Paper>2 </mt.Paper>
-	</mt.Grid>
-	<mt.Grid item xs={12} sm={6} md={3}> 
-		<mt.Paper>3 </mt.Paper>
-	</mt.Grid>
-	<mt.Grid item xs={12} sm={6} md={3}> 
-		<mt.Paper>4 </mt.Paper>
-	</mt.Grid>
-</mt.Grid>
+<span> { dateModified } { timeModified }</span> 
 
 */
-
 	return (
 		<mt.Card>
 			<CardHeading>
 				{date} {time}
 
-				<Button onClick={() => updateNote(id)}>
+				<Button onClick={() => onUpdateClick(id)}>
 					<AiOutlineEdit size={20}/> 
 				</Button>
 
 				<Button onClick={() => deleteNote(id)}> 
 					<AiTwotoneDelete size={20}/>
 				</Button> 
-		
 			</CardHeading>
-				<CardBody> {body} </CardBody>
+
+				{ isModified ? <CardBody> 
+
+					<TextField 
+	      	value={body} 
+	      	onChange={(e) => setBody(e.target.value)}
+	      	/>
+	      	</CardBody> : 
+
+	      	<CardBody> {body} </CardBody>
+
+	      }			    	
+
 		</mt.Card>	
 	);
 }

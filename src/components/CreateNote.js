@@ -48,8 +48,11 @@ const CreateNote = ({fetchNotes, handleClick}) => {
 	let totalChars = 840;
 
 	const [body, setBody] = useState('');
+	const [modified, setModified] = useState(false);
 	const [date, setDate] = useState(new Date().toLocaleDateString("en-US"));
 	const [time, setTime] = useState(new Date().toLocaleTimeString("en-US", {timeStyle: 'short'}));
+
+	// These are when the note was created, but I could have separate properties for when they were last modified that can be posted at the top of the note but below the date and time.
 
 	const [charLeft, setCharLeft] = useState(totalChars);
 
@@ -57,7 +60,10 @@ const CreateNote = ({fetchNotes, handleClick}) => {
 		await api.post('/', 
 			{body: body,
 			 date: date,
-			 time: time
+			 time: time,
+			 isModified: modified,
+			 modifiedDate: '',
+			 modifiedTime: '',
 			})
 		fetchNotes();
 		setBody('');
@@ -70,8 +76,8 @@ const CreateNote = ({fetchNotes, handleClick}) => {
 
 	// An onClick event function to handle all of the onClick events
 	const createButtonClick = () => { 
-		handleSubmit();
-		handleClick();
+		handleSubmit(); // This submits the info via post request
+		handleClick(); // This makes the toggled "Create Button" disappear
 	}
 
 	return (

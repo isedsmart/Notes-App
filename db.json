@@ -4,25 +4,66 @@
       "body": "Hmmm - it's getting better...",
       "date": "5/19/2021",
       "time": "8:52 PM",
+      "isModified": false,
+      "modifiedTime": "",
+      "modifiedDate": "",
       "id": 1
     },
     {
       "body": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque purus arcu, maximus ac tincidunt et, ultricies at arcu. Nulla tincidunt magna sed vehicula dictum. Nulla eu lacinia lectus, et tempus erat. Suspendisse potenti. Proin ornare maximus massa, sed ullamcorper augue facilisis nec. Quisque vitae interdum nisi. Quisque luctus massa vel aliquam suscipit. Curabitur dictum vitae lectus sit amet pulvinar. Nunc malesuada ipsum et leo imperdiet, quis sagittis eros accumsan.\n\nCras ut commodo mauris, quis tempus nibh. Sed varius, lorem a mollis bibendum, nisi velit pellentesque sem, sit amet vehicula odio dolor sed lacus. Etiam vel pharetra nisl, sit amet imperdiet sapien. Donec non velit tempor, efficitur urna nec, auctor urna. Curabitur dolor ante, aliquet quis neque at, viverra volutpat leo. Curabitur ut euismod eros.",
       "date": "5/19/2021",
       "time": "9:07 PM",
+      "isModified": false,
+      "modifiedTime": "",
+      "modifiedDate": "",
       "id": 2
     },
     {
       "body": "This is me creating a note and showing Kosette my notes app! Yayyyyy!!!!",
       "date": "5/27/2021",
       "time": "11:41 PM",
+      "isModified": false,
+      "modifiedTime": "",
+      "modifiedDate": "",
       "id": 3
     },
     {
       "body": "What about this note? I understand that this is pretty working well. I like how this effects the amount of characters that I'm inputting. I'd say so far this is a pretty successful notes app. :D",
       "date": "5/28/2021",
       "time": "12:41 AM",
+      "isModified": false,
+      "modifiedTime": "",
+      "modifiedDate": "",
       "id": 4
+    },
+    {
+      "body": "",
+      "date": "6/7/2021",
+      "time": "8:41 PM",
+      "isModified": true,
+      "modifiedTime": "",
+      "modifiedDate": "",
+      "id": 5,
+      "dateModified": "6/8/2021",
+      "timeModified": "8:32 PM"
+    },
+    {
+      "body": "This is a new note",
+      "date": "6/8/2021",
+      "time": "8:46 PM",
+      "isModified": false,
+      "modifiedDate": "",
+      "modifiedTime": "",
+      "id": 6
+    },
+    {
+      "body": "Here's another new note. Hopefully this works properly!",
+      "date": "6/11/2021",
+      "time": "6:15 PM",
+      "isModified": false,
+      "modifiedDate": "",
+      "modifiedTime": "",
+      "id": 7
     }
   ],
   "comments": [

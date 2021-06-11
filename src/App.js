@@ -13,11 +13,15 @@ import api from './axiosConfig';
 import styled from "styled-components";
 // import { withStyles } from '@material-ui/core/styles';
 
+// Features to add: Search by word in note, filter by date & time (asc and desc), update note
+
+
 const Title = styled.h1`
+  position: relative;
   text-align: center;
   font-family: "Arial", Sans-serif;
   font-size: 44px;
-  margin-bottom: 30px;
+  margin: 20px;
 `
 
 const SubTitle = styled.h2`
@@ -36,13 +40,16 @@ const TopDivider = styled.div`
 `
 
 const SearchBar = styled(mt.TextField)`
-  padding: 50px;
+  
 `
 
 function App() {
   const [clicked, setclicked] = useState(false);
   const [notes, setNotes] = useState([]);
   const [search, setSearch] = useState('');
+
+  // Based on lifting up state --> the app component would need to hold the state data of a note so that it can be passed down to the notesDetails and createNote
+
 
   // Use try, catch blocks for async functions (helpful last notes at 8:30)
   const fetchNotes = async() => {
@@ -90,8 +97,8 @@ function App() {
   }
   return (
     <main>
-      <Title> Welcome to My Notes </Title>
-      <SearchBar placeholder="Search for Notes" variant="outlined" margin="dense" color="secondary" onChange={SearchFilter}/>
+      <Title> Welcome to My Notes <SearchBar placeholder="Search for Notes" variant="outlined" margin="dense" color="secondary" onChange={SearchFilter}/> </Title>
+      
       <TopDivider/>
       { clicked && <CreateNote fetchNotes={fetchNotes} handleClick={handleClick}/> }
       <AddNoteFooter handleClick={handleClick} />
