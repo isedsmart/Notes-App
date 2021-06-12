@@ -2,6 +2,7 @@ import React from 'react';
 // import styled from "styled-components";
 import NotesDetails from './NotesDetails';
 import * as mt from '@material-ui/core';
+// import {useGlobalContext} from '../context'
 
 const NotesList = ({ Notes, fetchNotes }) => {
 	return (

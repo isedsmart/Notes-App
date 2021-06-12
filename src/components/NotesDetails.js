@@ -5,6 +5,7 @@ import { AiTwotoneDelete, AiOutlineEdit } from 'react-icons/ai';
 import * as mt from '@material-ui/core';
 
 import api from '../axiosConfig';
+// import {useGlobalContext} from '../context';
 
 const NoteCard = styled.div`
 	background-color: #27B7F5;
@@ -31,8 +32,8 @@ export const CardBody = styled.div`
 `
 
 const TextField = styled.textarea`
-  width: 350px;
-  height: 400px;
+  width: 330px;
+  height: 380px;
   maxHeight: 300px;
   resize: none; 
   padding: 10px 10px;
@@ -54,7 +55,10 @@ export const Button = styled.button`
 // Float just flips (swaps) the elements
 
 const NotesDetails = ({id, date, time, body, fetchNotes}) => {
-	const [isModified, setIsModified] = useState(false);
+	// const { body, setBody } = useGlobalContext(); 
+	let totalChars = 840; // This appears here and in the Create Note component
+
+	const [isUpdate, setIsUpdate] = useState(false);
 	const [dateModified, setDateModified] = useState(new Date().toLocaleDateString("en-US"));
   const [timeModified, setTimeModified] = useState(new Date().toLocaleTimeString("en-US", {timeStyle: 'short'}));
 
@@ -77,9 +81,8 @@ const NotesDetails = ({id, date, time, body, fetchNotes}) => {
     // Save button
   }
 
-  const onUpdateClick = (id, e) => {
-  	// console.log('Hello world' + id)
-  	setIsModified(true);
+  const onUpdateClick = (id) => {
+  	setIsUpdate(!isUpdate);
   }
    
 /*
@@ -101,12 +104,14 @@ const NotesDetails = ({id, date, time, body, fetchNotes}) => {
 				</Button> 
 			</CardHeading>
 
-				{ isModified ? <CardBody> 
+				{ isUpdate ? <CardBody> 
 
 					<TextField 
+					maxLength={totalChars} 
 	      	value={body} 
 	      	onChange={(e) => setBody(e.target.value)}
 	      	/>
+	      	<button onClick={(e) => updateNote(id)}> Done </button>
 	      	</CardBody> : 
 
 	      	<CardBody> {body} </CardBody>

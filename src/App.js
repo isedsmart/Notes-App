@@ -9,6 +9,7 @@ import AddNoteFooter from './components/AddNoteFooter';
 import NotesList from './components/NotesList';
 // import NotesDetails from './components/NotesDetails';
 import api from './axiosConfig';
+// import {useGlobalContext} from './context'
 
 import styled from "styled-components";
 // import { withStyles } from '@material-ui/core/styles';
