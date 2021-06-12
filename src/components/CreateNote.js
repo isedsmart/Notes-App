@@ -45,13 +45,13 @@ const Button = styled.button`
   font-family: "Arial", Sans-serif;
 `
 
-const CreateNote = ({fetchNotes, handleClick}) => {
+const CreateNote = ({fetchNotes, handleClick, body, setBody}) => {
 	let totalChars = 840; // This appears here and in the Note Details component
 	// const { body, setBody } = useGlobalContext(); 
-	const [body, setBody] = useState('');
-	const [modified, setModified] = useState(false);
-	const [date, setDate] = useState(new Date().toLocaleDateString("en-US"));
-	const [time, setTime] = useState(new Date().toLocaleTimeString("en-US", {timeStyle: 'short'}));
+	
+	const modified = false;
+	const date = new Date().toLocaleDateString("en-US");
+	const time = new Date().toLocaleTimeString("en-US", {timeStyle: 'short'});
 
 	// These are when the note was created, but I could have separate properties for when they were last modified that can be posted at the top of the note but below the date and time.
 

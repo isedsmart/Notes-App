@@ -22,9 +22,9 @@
       "body": "This is me creating a note and showing Kosette my notes app! Yayyyyy!!!!",
       "date": "5/27/2021",
       "time": "11:41 PM",
-      "isModified": false,
-      "modifiedTime": "",
-      "modifiedDate": "",
+      "isModified": true,
+      "modifiedTime": "1:32 AM",
+      "modifiedDate": "6/12/2021",
       "id": 3
     },
     {
@@ -37,42 +37,22 @@
       "id": 4
     },
     {
-      "body": "",
-      "date": "6/7/2021",
-      "time": "8:41 PM",
+      "body": "Awesome. So how does this note work?",
+      "date": "6/12/2021",
+      "time": "1:31 AM",
       "isModified": true,
-      "modifiedTime": "",
-      "modifiedDate": "",
-      "id": 5,
-      "dateModified": "6/8/2021",
-      "timeModified": "8:32 PM"
+      "modifiedDate": "6/12/2021",
+      "modifiedTime": "1:31 AM",
+      "id": 5
     },
     {
-      "body": "This is a new note",
-      "date": "6/8/2021",
-      "time": "8:46 PM",
+      "body": "Creating a new note...",
+      "date": "6/12/2021",
+      "time": "1:34 AM",
       "isModified": false,
       "modifiedDate": "",
       "modifiedTime": "",
       "id": 6
-    },
-    {
-      "body": "Here's another new note. Hopefully this works properly!",
-      "date": "6/11/2021",
-      "time": "6:15 PM",
-      "isModified": false,
-      "modifiedDate": "",
-      "modifiedTime": "",
-      "id": 7
-    },
-    {
-      "body": "This is a test note - Hi Brock and Trevor",
-      "date": "6/11/2021",
-      "time": "8:42 PM",
-      "isModified": false,
-      "modifiedDate": "",
-      "modifiedTime": "",
-      "id": 8
     }
   ],
   "comments": [

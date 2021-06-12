@@ -45,6 +45,8 @@ const SearchBar = styled(mt.TextField)`
 `
 
 function App() {
+  const [body, setBody] = useState(''); // Lifted up the state
+
   const [clicked, setclicked] = useState(false);
   const [notes, setNotes] = useState([]);
   const [search, setSearch] = useState('');
@@ -91,7 +93,7 @@ function App() {
         <Title> Welcome to My Notes </Title>
         <TopDivider/>
         <SubTitle> You Have No Notes :( </SubTitle>
-        { clicked && <CreateNote fetchNotes={fetchNotes} handleClick={handleClick}/> }
+        { clicked && <CreateNote fetchNotes={fetchNotes} handleClick={handleClick} body={body} setBody={setBody}/> }
         <AddNoteFooter handleClick={handleClick} />
       </main>
     );
@@ -101,9 +103,9 @@ function App() {
       <Title> Welcome to My Notes <SearchBar placeholder="Search for Notes" variant="outlined" margin="dense" color="secondary" onChange={SearchFilter}/> </Title>
       
       <TopDivider/>
-      { clicked && <CreateNote fetchNotes={fetchNotes} handleClick={handleClick}/> }
+      { clicked && <CreateNote fetchNotes={fetchNotes} handleClick={handleClick} body={body} setBody={setBody}/> }
+      <NotesList Notes={notes} fetchNotes={fetchNotes} body={body} setBody={setBody}/>
       <AddNoteFooter handleClick={handleClick} />
-      <NotesList Notes={notes} fetchNotes={fetchNotes}/>
     </main>
   );
 }
