@@ -4,13 +4,13 @@ import styled from "styled-components";
 // All of these CSS combinations puts it at the bottom of the page.
 
 const Footer = styled.div`
-	position: fixed;
+	position: sticky;
 	font-family: "Arial", Sans-serif;
-	position: fixed;
 	text-align: center;
 	bottom: 0;
 	width: 100%;
 	padding: 10px;
+	box-sizing: border-box;
 	margin-top: 5px;
 	background-color: #27B7F5;
 `

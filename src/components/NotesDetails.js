@@ -5,7 +5,7 @@ import { AiTwotoneDelete, AiOutlineEdit } from 'react-icons/ai';
 import * as mt from '@material-ui/core';
 
 import api from '../axiosConfig';
-// import {useGlobalContext} from '../context';
+import {useGlobalContext} from '../context';
 
 // const NoteCard = styled.div`
 // 	background-color: #27B7F5;
@@ -54,8 +54,8 @@ const Button = styled.button`
 
 // Float just flips (swaps) the elements
 
-const NotesDetails = ({id, isModified, date, time, body, modifiedDate, modifiedTime, setBody, fetchNotes}) => {
-	// const { body, setBody } = useGlobalContext(); 
+const NotesDetails = ({id, isModified, date, time, modifiedDate, modifiedTime, fetchNotes}) => {
+	const { body, setBody } = useGlobalContext(); 
 	let totalChars = 840; // This appears here and in the Create Note component
 
 	const [isUpdate, setIsUpdate] = useState(false);

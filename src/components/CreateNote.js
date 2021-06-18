@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from "styled-components";
 import { useState } from "react";
-// import {useGlobalContext} from '../context'
+import {useGlobalContext} from '../context'
 
 import api from '../axiosConfig';
 
@@ -45,9 +45,9 @@ const Button = styled.button`
   font-family: "Arial", Sans-serif;
 `
 
-const CreateNote = ({fetchNotes, handleClick, body, setBody}) => {
+const CreateNote = ({fetchNotes, handleClick}) => {
 	let totalChars = 840; // This appears here and in the Note Details component
-	// const { body, setBody } = useGlobalContext(); 
+	const { body, setBody } = useGlobalContext(); 
 	
 	const modified = false;
 	const date = new Date().toLocaleDateString("en-US");
